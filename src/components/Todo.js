@@ -15,6 +15,14 @@ class Todo extends Component {
         this.setState({ done: true });
     }
 
+    cssClasses() {
+        let classes = ['Todo'];
+        if (this.state.done) {
+            classes = [...classes, 'Done'];
+        }
+        return classes.join(' ');
+    }
+
     render() {
         return (
             <div className={"Todo" + (this.state.done ? ' Done' : '')}>
