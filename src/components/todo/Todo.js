@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Todo.css';
+import './Todo.css';
 
 class Todo extends Component {
     constructor(props) {
@@ -9,6 +9,11 @@ class Todo extends Component {
             done: false
         };
         this.markAsDone = this.markAsDone.bind(this);
+        this.removeTodo = this.removeTodo.bind(this);
+    }
+
+    removeTodo() {
+        this.props.removeTodo(this.state.description);
     }
 
     markAsDone() {
@@ -29,6 +34,7 @@ class Todo extends Component {
                 {this.state.description}
                 <br />
                 <button onClick={this.markAsDone}>Mark as Done</button>
+                <button onClick={this.removeTodo}>Remove Me</button>
             </div>
         );
     }
