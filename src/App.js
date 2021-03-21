@@ -6,9 +6,9 @@ const App = () => (
   <div className="App">
     <h2>PomodoerTime</h2>
     <br />
-    <Todo description="Do the thing" />
-    <Todo description="Make this awesome" />
-    <Todo description="Do some other awesome thing" />
+    <Todo description="Play some SMITE" />
+    <Todo description="Play Star Wars Squadrons" />
+    <Todo description="Play Marvel's Avengers" />
   </div>
 );
 
