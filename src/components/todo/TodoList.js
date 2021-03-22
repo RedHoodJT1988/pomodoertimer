@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import Todo from './Todo';
 import NewTodo from './NewTodo';
 import './TodoList.css';
@@ -35,14 +35,14 @@ class TodoList extends Component {
 
     renderItems() {
         return this.state.items.map(description => (
-            <div key={"div-" + description}>
+            <Fragment key={"item-" + description}>
                 <Todo 
                     key={description} 
                     description={description}
                     removeTodo={this.removeTodo}
                 />
                 <Divider key={"divide-" + description} />
-             </div>
+             </Fragment>
         ));
     }
 
