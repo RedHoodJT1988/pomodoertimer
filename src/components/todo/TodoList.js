@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import Todo from './Todo';
 import NewTodo from './NewTodo';
 import './TodoList.css';
+import Divider from "../divider/Divider";
 
 class TodoList extends Component {
     constructor(props) {
+        const [item1, item2, ...rest] = [
+            "Write some code",
+            "Change the world",
+            "Take a nap",
+            "Eat a cookie"
+        ];
         super(props);
-        this.state = { items: ['Item #1', 'Item #2', 'Item #3'] };
-        this.addTodo = this.addTodo.bind(this);
-        this.removeTodo = this.removeTodo.bind(this);
+        // this.state = { items: ['Item #1', 'Item #2', 'Item #3'] };
+        // this.addTodo = this.addTodo.bind(this);
+        // this.removeTodo = this.removeTodo.bind(this);
+        this.state = {
+            items: [item1, item2, rest.join(" and ")]
+        };
 
     }
 
@@ -25,11 +35,14 @@ class TodoList extends Component {
 
     renderItems() {
         return this.state.items.map(description => (
-            <Todo 
-                key={description} 
-                description={description}
-                removeTodo={this.removeTodo}
-             />
+            <div key={"div-" + description}>
+                <Todo 
+                    key={description} 
+                    description={description}
+                    removeTodo={this.removeTodo}
+                />
+                <Divider key={"divide-" + description} />
+             </div>
         ));
     }
 
